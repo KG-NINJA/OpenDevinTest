@@ -1,0 +1,11 @@
+# OpenDevin Setup
+
+This repository contains the setup workflow for running OpenDevin locally using pnpm.  
+It is designed to be compatible with Codex automated agents.
+
+## How to run
+
+1. Clone this repo
+2. Run `scripts/setup.sh`
+3. Add your `.env` secrets
+4. Launch with `pnpm dev`
