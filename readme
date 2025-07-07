@@ -1,11 +1,95 @@
-# OpenDevin Setup
+# OpenHands 環境構築ガイド
 
-This repository contains the setup workflow for running OpenDevin locally using pnpm.  
-It is designed to be compatible with Codex automated agents.
+このドキュメントでは、OpenHands をローカル環境でスムーズに構築する手順を日本語で説明します。
 
-## How to run
+## 前提条件
 
-1. Clone this repo
-2. Run `scripts/setup.sh`
-3. Add your `.env` secrets
-4. Launch with `pnpm dev`
+- Git がインストールされていること
+- Node.js (推奨バージョン: 16.x 以上) および pnpm がインストールされていること  
+  インストール例: `npm install -g pnpm`
+- （必要に応じて）Python 3.8 以上および Poetry がインストールされていること
+- データベース（例: PostgreSQL, MySQL）の準備と接続情報
+
+## リポジトリのクローン
+
+```bash
+git clone https://github.com/your-org/openhands.git
+cd openhands
+```
+
+## 依存関係のインストール
+
+### フロントエンド
+
+```bash
+cd frontend
+pnpm install
+```
+
+`vite.config.js` に以下の設定を追加または確認して、0.0.0.0 からのアクセスと CORS、iframe を許可します。
+
+```js
+export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 55083,
+    strictPort: true,
+    cors: true,
+    watch: {
+      usePolling: true,
+    },
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: 55083,
+    cors: true,
+  },
+  // 必要に応じて allowedHosts を 'all' に設定
+  // server: { allowedHosts: 'all' },
+});
+```
+
+### バックエンド
+
+```bash
+cd backend
+pnpm install
+```
+
+- `cors` ミドルウェアの設定を確認し、すべてのオリジンからのリクエストを許可する場合は `cors({ origin: '*' })` を設定してください。
+- 環境変数ファイル `.env` をルートディレクトリに作成し、接続情報を追加します。例:
+
+```
+DATABASE_URL=postgres://user:password@localhost:5432/openhands_dev
+API_PORT=50133
+```
+
+## データベースのマイグレーション
+
+バックエンドディレクトリで以下を実行します。
+
+```bash
+pnpm run migrate
+```
+
+（または使用している ORM に応じたコマンド）
+
+## サーバーの起動
+
+ルートディレクトリで以下を実行し、フロントエンドとバックエンドを並行して起動します。
+
+```bash
+pnpm run dev
+```
+
+- フロントエンド: http://localhost:55083  
+- バックエンド API: http://localhost:50133
+
+## 動作確認
+
+ブラウザで http://localhost:55083 を開き、正常に起動することを確認します。また、バックエンド API に対しては GET /health などのエンドポイントで確認してください。
+
+---
+
+これらの手順に従うことで、OpenHands をスムーズにローカル環境で構築・起動できます。問題が発生した場合は、Issue を作成してください。
+
