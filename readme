@@ -2,7 +2,39 @@
 
 このドキュメントでは、OpenHands をローカル環境でスムーズに構築する手順を日本語で説明します。
 
-## 前提条件
+## 🚀 OpenHands を始める方法
+
+OpenHands を使用する方法は2つあります：
+
+### 1. OpenHands Cloud（推奨・最も簡単）
+
+**OpenHands Cloud** は完全管理されたクラウドソリューションで、最も簡単に OpenHands を始められる方法です。
+
+**特徴：**
+- 新規ユーザーには無料クレジットが提供されます（$20〜$50 - 最新情報は [公式サイト](https://app.all-hands.dev/) でご確認ください）
+- GitHub/GitLab との seamless な統合
+- モバイルデバイスからのアクセス対応
+- コンテキスト圧縮などの最適化機能が標準搭載
+- 環境構築不要で即座に利用開始可能
+
+**利用開始：**
+[app.all-hands.dev](https://app.all-hands.dev/) にアクセスして GitHub または GitLab アカウントでログインするだけです。
+
+### 2. ローカル環境での構築
+
+ローカル環境で OpenHands を実行したい場合や、独自の LLM と API キーを使用したい場合は、以下の手順に従ってください。
+
+**こんな場合におすすめ：**
+- プライベートな環境で実行したい
+- 独自の LLM モデルを使用したい
+- カスタマイズや開発を行いたい
+- インターネット接続が制限された環境で使用したい
+
+---
+
+## ローカル環境構築手順
+
+### 前提条件
 
 - Git がインストールされていること
 - Node.js (推奨バージョン: 16.x 以上) および pnpm がインストールされていること  
@@ -91,5 +123,27 @@ pnpm run dev
 
 ---
 
-これらの手順に従うことで、OpenHands をスムーズにローカル環境で構築・起動できます。問題が発生した場合は、Issue を作成してください。
+## 📚 追加情報
+
+### OpenHands Cloud vs ローカル環境
+
+| 項目 | OpenHands Cloud | ローカル環境 |
+|------|----------------|------------|
+| **セットアップ** | 即座に利用可能 | 環境構築が必要 |
+| **コスト** | 無料クレジット付き、その後従量課金 | LLM API 料金のみ |
+| **カスタマイズ** | 限定的 | 完全にカスタマイズ可能 |
+| **プライバシー** | クラウド環境 | 完全にプライベート |
+| **メンテナンス** | 不要 | 自己管理が必要 |
+
+### 関連リンク
+
+- [OpenHands 公式サイト](https://www.all-hands.dev/)
+- [OpenHands Cloud](https://app.all-hands.dev/)
+- [GitHub リポジトリ](https://github.com/All-Hands-AI/OpenHands)
+- [公式ドキュメント](https://docs.all-hands.dev/)
+- [コミュニティ Slack](https://join.slack.com/t/openhands-ai/shared_invite/zt-3847of6xi-xuYJIPa6YIPg4ElbDWbtSA)
+
+---
+
+これらの手順に従うことで、OpenHands をスムーズにローカル環境で構築・起動できます。問題が発生した場合は、[GitHub Issues](https://github.com/All-Hands-AI/OpenHands/issues) を作成してください。
 
