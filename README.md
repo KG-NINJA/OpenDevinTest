@@ -14,6 +14,6 @@ After multiple attempts, I was able to:
 - See the app finally running: "エージェントがユーザー入力を待機中..."
 
 Here’s the tweet documenting the victory:
-📸 [https://x.com/FuwaCocoOwnwerKG]
+📸 [https://x.com/FuwaCocoOwnerKG]
 
 This note documents that OpenHands is robust enough to survive real-world misconfigurations and still recover—just like a resilient dev in the wild.
