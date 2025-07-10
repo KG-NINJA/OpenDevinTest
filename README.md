@@ -17,3 +17,11 @@ Here’s the tweet documenting the victory:
 📸 [https://x.com/FuwaCocoOwnwerKG]
 
 This note documents that OpenHands is robust enough to survive real-world misconfigurations and still recover—just like a resilient dev in the wild.
+
+### 🛠️ Troubleshooting Runtime Startup Issue
+
+While setting up OpenDevin with OpenHands on Docker, I encountered an issue where the container runtime failed to start. The resolution involved stopping all related containers, cleaning up volumes and orphans using:
+
+```bash
+docker compose down --volumes --remove-orphans
+```
